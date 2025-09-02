@@ -100,12 +100,4 @@ export function isAdmin(req,res){
     return true;
 }
 
-export function isCustomer(req,res){
-    if(req.user == null){
-        return false;
-    }
-    if(req.user.role != "customer"){
-        return false;
-    }
-    return true;
-}
+
