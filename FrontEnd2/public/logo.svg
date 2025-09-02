@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" style="--color-accent:#FF0066;">
+  <defs>
+    <style><![CDATA[
+      .bg { fill: #ffffff; }
+      .accent { fill: var(--color-accent); }
+      .strokeAccent { stroke: var(--color-accent); fill: none; stroke-width: 8; stroke-linecap: round; }
+      .sparkle { fill: var(--color-accent); opacity: 0.9; transform-origin: center; transition: transform .25s ease, opacity .25s ease; }
+      .logo:hover .sparkle { transform: scale(1.15) rotate(12deg); opacity: 1; }
+      .logo:hover .underline { stroke-dashoffset: 0; }
+      .cbc { font: 900 200px 'Poppins', Arial, Helvetica, sans-serif; letter-spacing: 8px; }
+      .tag { font: 600 34px 'Poppins', Arial, Helvetica, sans-serif; letter-spacing: 2px; }
+      .underline { stroke: var(--color-accent); stroke-width: 10; stroke-linecap: round; stroke-dasharray: 600; stroke-dashoffset: 600; transition: stroke-dashoffset .8s ease; }
+    ]]></style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="100%" height="100%" />
+
+  <g class="logo" transform="translate(0,0)">
+    <!-- Sparkles -->
+    <g transform="translate(280,160)">
+      <polygon class="sparkle" points="0,-20 6,-6 20,0 6,6 0,20 -6,6 -20,0 -6,-6" />
+    </g>
+    <g transform="translate(920,130) rotate(20)">
+      <polygon class="sparkle" points="0,-16 5,-5 16,0 5,5 0,16 -5,5 -16,0 -5,-5" />
+    </g>
+
+    <!-- CBC Text -->
+    <text x="600" y="310" text-anchor="middle" class="accent cbc">CBC</text>
+
+    <!-- Tagline -->
+    <text x="600" y="380" text-anchor="middle" class="accent tag">CRYSTAL&#160;BEAUTY&#160;CLEAR</text>
+
+    <!-- Underline (animated) -->
+    <path class="underline" d="M360 410 Q600 460 840 410" />
+  </g>
+</svg>
