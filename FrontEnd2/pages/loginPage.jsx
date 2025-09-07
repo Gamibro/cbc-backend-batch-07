@@ -22,7 +22,7 @@ export default function LoginPage() {
     try {
       if (validate() == false) return;
 
-      const response = await axios.post("http://localhost:5000/api/user/login", {
+      const response = await axios.post(import.meta.env.VITE_BASE_URL + "/api/user/login", {
         email: email,
         password: password,
       });

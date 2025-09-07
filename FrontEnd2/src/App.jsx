@@ -1,9 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import { AdminPage } from '../pages/adminPage'
+
 import HomePage from '../pages/homePage'
 import LoginPage from '../pages/loginPage'
 import { Toaster } from 'react-hot-toast'
+import AdminPage from '../pages/adminPage'
+import Test from '../pages/test'
 
 function App() {
 
@@ -18,7 +20,8 @@ function App() {
       <Route path='/*' element={<HomePage/>}/> 
       <Route path='/login' element={<LoginPage/>}></Route>
       <Route path='/register' element={<h1>Register</h1>}></Route>
-      <Route path='/admin' element={<AdminPage/>}></Route>
+      <Route path='/admin/*' element={<AdminPage/>}></Route>
+      <Route path='/test' element={<Test/>}></Route>
     </Routes>
     </div>
     </BrowserRouter>

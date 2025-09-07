@@ -10,6 +10,7 @@ export async function createProduct(req,res) {
    }
     try{
         const productData = req.body;
+        console.log(productData);
         const product = new Product(productData);
         await product.save();
 
@@ -47,15 +48,17 @@ export async function getProducts(req,res) {
 }
 
 export async function deleteProducts(req,res) {
+    
     if(!isAdmin(req)){ //Authorization
         res.status(403).json({
             message: "You are not authorized to delete a product"
         })
     }
     try{
+        console.log(req.body);
         const productID = req.params.productId; //reads the request parameters from the url
         await Product.deleteOne({
-        productID : productID
+        productId : productID
         })
         res.json({
         message: "Product deleted successfully"
@@ -76,13 +79,15 @@ export async function updateProduct(req,res) {
     if(!isAdmin(req)){
         res.status(403).json({
             message: "You are not authorized to update products"
+
         })
+        
     }
     try{
         const productID = req.params.productId;
         const updatedProduct = req.body;
         await Product.updateOne({
-            productID: productID
+            productId: productID
         },updatedProduct)
     res.json({
         message: "Product updated successfully"
@@ -100,7 +105,7 @@ export async function getProductsID(req,res) {
     try{
         const productID = req.params.productId;
         const product = await Product.findOne({
-            productID: productID
+            productId: productID
         })
         if(product == null){
             res.json({
